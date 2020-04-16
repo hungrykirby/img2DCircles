@@ -20,9 +20,11 @@ class SankakuNoise extends PointColor {
     for(int x = 0; x < this.w; x += ip){
       for(int y = 0; y < this.h; y += ip){
         int xx = x;
+        /*
+        // ここでいい感じにずらそうと思ったが、その必要は画像を見る限りなさそう。
         if(int(y/ip) % 2 == 0){
           xx += int(ip/2);
-        }
+        }*/
         int yy = y;
         xx += random(0, ip); // ここは0以上を指定しないとdraw内でエラーになる可能性がある
         yy += random(0, ip);
