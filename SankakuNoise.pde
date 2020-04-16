@@ -21,10 +21,10 @@ class SankakuNoise extends PointColor {
       for(int y = 0; y < this.h; y += ip){
         int xx = x;
         if(int(y/ip) % 2 == 0){
-          xx -= int(ip/2);
+          xx += int(ip/2);
         }
         int yy = y;
-        xx += random(0, ip);
+        xx += random(0, ip); // ここは0以上を指定しないとdraw内でエラーになる可能性がある
         yy += random(0, ip);
         xs[int(x/ip)][int(y/ip)] = xx;
         ys[int(x/ip)][int(y/ip)] = yy;
@@ -43,14 +43,14 @@ class SankakuNoise extends PointColor {
         int x2 = xs[i + 1][j];
         int y2 = ys[i + 1][j];
         
-        int x3 = xs[i][j + 1];
-        int y3 = ys[i][j + 1];
+        int x3 = min(xs[i][j + 1], this.w - 1); // 画面外の点を参照することを避ける
+        int y3 = min(ys[i][j + 1], this.h - 1);
         fill(this.pointColor[x3][y3]);
         triangle(x, y, x2, y2, x3, y3);
         
-        int x4 = xs[i + 1][j - 1];
-        int y4 = ys[i + 1][j - 1];
-        fill(this.pointColor[x2][y2]);
+        int x4 = min(xs[i + 1][j - 1], this.w - 1);
+        int y4 = min(ys[i + 1][j - 1], this.h - 1);
+        fill(this.pointColor[x4][y4]);
         triangle(x, y, x2, y2, x4, y4);
 
       }
