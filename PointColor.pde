@@ -8,7 +8,6 @@ class PointColor {
   
   PointColor(int intervalOfPiexels, PImage img){
     this.intervalOfPixels = intervalOfPiexels;
-    this.img = img;
     w = img.width;
     h = img.height;
     loadPixels();
@@ -26,32 +25,5 @@ class PointColor {
     noStroke();
   }
   
-  
-}
-
-class ReturnValues {
-  public int x;
-  public int y;
-  
-  ReturnValues(int _x, int _y){
-    x = _x;
-    y = _y;
-  }
-}
-
-class Called {
-  
-  int x, y;
-  
-  Called(int _x, int _y){
-    x = _x; y = _y;
-  }
-  
-  public ReturnValues method() {
-    ReturnValues value = new ReturnValues(x, y);
-    value.x = x;
-    value.y = y;
-    return value;
-  }
   
 }

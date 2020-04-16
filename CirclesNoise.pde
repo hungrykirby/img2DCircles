@@ -1,7 +1,6 @@
 class CirclesNoise extends PointColor {
   PImage img;
   int intervalOfPixels = 25;
-  int x, y;
   
   CirclesNoise(int intervalOfPixels, PImage img){
     super(intervalOfPixels, img);
