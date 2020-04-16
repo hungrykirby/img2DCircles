@@ -20,7 +20,7 @@ void setup() {
       tn.setRandomInterval(20);
       break;
     case 3:
-      sn = new SankakuNoise(50, img); 
+      sn = new SankakuNoise(15, img); 
   }
 }
 
@@ -36,5 +36,8 @@ void draw(){
     case 3:
      sn.draw();
      break;
+  }
+  if(frameCount == 1){
+    save("output/iikanzi" + hour() + "" + minute() + "" + second() + ".png");
   }
 }
